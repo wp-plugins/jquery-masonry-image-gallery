@@ -34,11 +34,15 @@ Yes. It's actually really easy. Go to the Dashboard -> Settings -> Media. Make s
 
 == Changelog ==
 
+0.3 - Galleries center when images realign on window size change.
+
 0.2 - Fixed bug, added screenshots, plugin header, revised documentation.
 
 0.1 - First Release
 
 == Upgrade Notice ==
+
+0.3 - Galleries center when images realign on window size change.
 
 0.2 - Bug Fix. Update Now.
 
