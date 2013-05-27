@@ -16,7 +16,7 @@ Applies jQuery Masonry to native WordPress image galleries. jQuery Masonry is in
 
 == Installation ==
 
-1. Upload `plugin-name.php` to the `/wp-content/plugins/` directory
+1. Upload `jquery-masonry-image-gallery` folder to the `/wp-content/plugins/` directory
 2. Activate the plugin through the 'Plugins' menu in WordPress
 3. That's it!
 
