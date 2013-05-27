@@ -8,11 +8,11 @@ Stable tag: 0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Injects jQuery Masonry for native WordPress image galleries. Works best on galleries without 1:1 scaled thumbnails.
+Applies jQuery Masonry to native WordPress image galleries. Works best on galleries without 1:1 scaled thumbnails.
 
 == Description ==
 
-Injects jQuery Masonry for native WordPress image galleries. jQuery Masonry is included in WordPress, use it for image galleries. Works best on galleries <strong>without</strong> 1:1 scaled thumbnails.
+Applies jQuery Masonry to native WordPress image galleries. jQuery Masonry is included in WordPress, use it for image galleries. Works best on galleries <strong>without</strong> 1:1 scaled thumbnails.
 
 == Installation ==
 
@@ -28,12 +28,18 @@ Yes. It's actually really easy. Go to the Dashboard -> Settings -> Media. Make s
 
 == Screenshots ==
 
-1. http://willre.es/wp-content/uploads/2013/05/wordpress-development-portfolio.png
+1. Native WordPress Gallery using jQuery Masonry
+
+2. Native WordPress Gallery not using jQuery Masonry
 
 == Changelog ==
+
+0.2 - Fixed bug, added screenshots, plugin header, revised documentation.
 
 0.1 - First Release
 
 == Upgrade Notice ==
+
+0.2 - Bug Fix. Update Now.
 
 0.1 - First Release

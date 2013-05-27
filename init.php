@@ -33,7 +33,7 @@ if (!is_admin()) {
 	function masonry_init() {
 	   // register your script location, dependencies and version
 		  wp_register_script('masonryInit',
-	      plugins_url() . '/masonry-gallery/masonry-init.js',
+	      plugins_url() . '/jquery-masonry-image-gallery/masonry-init.js',
 	      array('jquery', 'jquery-masonry'),
 	      '1.0', 
 	      true);
