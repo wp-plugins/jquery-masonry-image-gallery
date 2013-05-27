@@ -9,8 +9,8 @@
 					 	easing: 'linear',
 					 	queue: false
 					 
-					 }
-					
+					 },
+				isFitWidth: true
 				});
 			});
 })(jQuery);
