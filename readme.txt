@@ -14,6 +14,8 @@ Applies jQuery Masonry to native WordPress image galleries. Works best on galler
 
 Applies jQuery Masonry to native WordPress image galleries. jQuery Masonry is included in WordPress, use it for image galleries. Works best on galleries <strong>without</strong> 1:1 scaled thumbnails.
 
+<strong>Please note:</strong> This plugin will not modify your CSS. jQuery Masonry may not play so friendly with padded images during window resize. If you have this issue come up, then please leave a ticket on the Support page. I will try to help you safely modify your CSS for a better transition.
+
 == Installation ==
 
 1. Upload `jquery-masonry-image-gallery` folder to the `/wp-content/plugins/` directory
