@@ -4,7 +4,7 @@ Donate link:
 Tags: gallery, jquery masonry
 Requires at least: 3.5
 Tested up to: 3.6
-Stable tag: 1.2
+Stable tag: 1.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -35,6 +35,7 @@ Yes. It's actually really easy. Go to the Dashboard -> Settings -> Media. Make s
 2. Native WordPress Gallery not using jQuery Masonry
 
 == Changelog ==
+1.3 - Typo
 
 1.2 - Better version detection
 
@@ -51,6 +52,7 @@ Yes. It's actually really easy. Go to the Dashboard -> Settings -> Media. Make s
 0.1 - First Release
 
 == Upgrade Notice ==
+1.3 - Typo
 
 1.2 - Better version detection
 
