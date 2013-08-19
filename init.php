@@ -31,7 +31,7 @@ $word_version = get_bloginfo('version');
 
 /* Add required Styles using wp_enqueue_style */
 	
-	if ($word_version >= '3.6') {
+	if ($word_version >= 3.6) {
 
 		function jmig_css() 
 	
