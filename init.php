@@ -29,7 +29,7 @@ License:
 
 /* Add required Styles using wp_enqueue_style */
 	
-	if ($wp_version >= 3.6) {
+	if ($wp_version >= '3.6') {
 
 		function jmig_css() 
 	
