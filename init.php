@@ -5,7 +5,7 @@
 Plugin Name:  jQuery Masonry Image Gallery
 Plugin URI:   http://willre.es/2013/02/jquery-masonry-and-native-wordpress-image-galleries/
 Description:  Injects jQuery Masonry for native WordPress image galleries. jQuery Masonry is included in WordPress, use it for image galleries. Works best on galleries <strong>without</strong> 1:1 scaled thumbnails.
-Version:      1.0
+Version:      1.1
 Author:       Will Rees
 Author URI:   http://willre.es
 License:
@@ -27,18 +27,76 @@ License:
   
 */
 
-/* Add required Styles using wp_enqueue_style */
+$word_version = get_bloginfo('version');
 
-function jmig_css() 
+/* Add required Styles using wp_enqueue_style */
 	
-	{
+	if ($word_version >= '3.6') {
+
+		function jmig_css() 
 	
-		global $post;
+			{
 	
-		if ( function_exists('has_shortcode') AND has_shortcode( $post->post_content, 'gallery') )
+				global $post;
+	
+					if( has_shortcode( $post->post_content, 'gallery') )		
+						{
+
+							wp_enqueue_style('jmig_stylesheet',
+							plugins_url( 'jmig.css' , __FILE__ )
+							);
+        
+								$thumbnail_width = get_option( 'thumbnail_size_w' );
+								$custom_css = '.gallery-item {width: ' . $thumbnail_width . 'px !important}';
+		
+									wp_add_inline_style( 'jmig_stylesheet', $custom_css );
+					
+						}
+
+			}
+
+
+	add_action( 'wp_enqueue_scripts', 'jmig_css' );
+
+
+/* Add required jQuery using wp_enqueue_script */
+
+	function jmig_js()
+
+		{
+		
+			global $post;
+		
+				if( has_shortcode( $post->post_content, 'gallery') )
+		
+					{
+				
+						// register your script location, dependencies and version
+						wp_register_script('masonryInit',
+						plugins_url( 'masonry-init.js' , __FILE__ ),
+						array('jquery', 'jquery-masonry'),
+						'0.4', 
+						true);
+	      
+	       
+							// enqueue the script
+							wp_enqueue_script('masonryInit');
+					
+					}
+  
+		}
+
+	add_action( 'wp_enqueue_scripts', 'jmig_js');
+		
+}
+		
+else {
+	
+	//Inject Theme Dependent jQuery plugins
+	
+		function jmig_css() 
 		
 			{
-
 				wp_enqueue_style('jmig_stylesheet',
 				plugins_url( 'jmig.css' , __FILE__ )
 				);
@@ -46,38 +104,29 @@ function jmig_css()
 					$thumbnail_width = get_option( 'thumbnail_size_w' );
 					$custom_css = '.gallery-item {width: ' . $thumbnail_width . 'px !important}';
 		
-					wp_add_inline_style( 'jmig_stylesheet', $custom_css );
+						wp_add_inline_style( 'jmig_stylesheet', $custom_css );
 					
 			}
 
-	}
-
-		add_action( 'wp_enqueue_scripts', 'jmig_css' );
-
-/* Add required jQuery using wp_enqueue_script */
-
-function jmig_js()
-
-	{
-		global $post;
-		
-		if ( function_exists('has_shortcode') AND has_shortcode( $post->post_content, 'gallery') )
+	add_action( 'wp_enqueue_scripts', 'jmig_css' );
+	
+		function masonry_init() 
 		
 			{
+		
 				// register your script location, dependencies and version
 				wp_register_script('masonryInit',
 				plugins_url( 'masonry-init.js' , __FILE__ ),
 				array('jquery', 'jquery-masonry'),
-				'0.4', 
+		        '0.4', 
 				true);
-	      
-	       
-				// enqueue the script
-				wp_enqueue_script('masonryInit');
+        
+         
+					// enqueue the script
+					wp_enqueue_script('masonryInit');
+     
 			}
   
-	}
-
-		add_action( 'wp_enqueue_scripts', 'jmig_js');
+  add_action('wp_enqueue_scripts', 'masonry_init');}
 
 ?>
