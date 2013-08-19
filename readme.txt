@@ -4,7 +4,7 @@ Donate link:
 Tags: gallery, jquery masonry
 Requires at least: 3.5
 Tested up to: 3.6
-Stable tag: 0.4
+Stable tag: 1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -14,7 +14,7 @@ Applies jQuery Masonry to native WordPress image galleries. Works best on galler
 
 Applies jQuery Masonry to native WordPress image galleries. jQuery Masonry is included in WordPress, use it for image galleries. Works best on galleries <strong>without</strong> 1:1 scaled thumbnails.
 
-<strong>Please note:</strong> This plugin will not modify your CSS. jQuery Masonry may not play so friendly with padded images during window resize. If you have this issue come up, then please leave a ticket on the Support page. I will try to help you safely modify your CSS for a better transition.
+<strong>Please note:</strong> This plugin will only include 1 line of CSS in your theme. The only CSS injected is the thumbnail width that is taken directly from the Media options page. This will not alter gallery thumbnail styles such as border, padding, etc. This 1 line of CSS helps eliminate image overlap in a responsive theme during window resize.
 
 == Installation ==
 
@@ -36,6 +36,8 @@ Yes. It's actually really easy. Go to the Dashboard -> Settings -> Media. Make s
 
 == Changelog ==
 
+1.0 - Big update. Now uses the new has_shortcode function available in WP 3.6 with fallback for older version of WP. Also uses thumbnail size for better resizing during window resize. Only injects  1 line of CSS for thumbnail size.  
+
 0.4 - Minor code update
 
 0.3 - Galleries center when images realign on window size change.
@@ -45,6 +47,8 @@ Yes. It's actually really easy. Go to the Dashboard -> Settings -> Media. Make s
 0.1 - First Release
 
 == Upgrade Notice ==
+
+1.0 - Big update. Now uses the new has_shortcode function available in WP 3.6 with fallback for older version of WP. Also uses thumbnail size for better resizing during window resize. Only injects  1 line of CSS for thumbnail size.  
 
 0.4 - Minor code update
 

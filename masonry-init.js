@@ -8,7 +8,6 @@
 						duration: 250,
 					 	easing: 'linear',
 					 	queue: false
-					 
 					 },
 				isFitWidth: true
 				});
