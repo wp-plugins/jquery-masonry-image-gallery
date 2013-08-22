@@ -4,7 +4,7 @@ Donate link:
 Tags: gallery, jquery masonry
 Requires at least: 3.5
 Tested up to: 3.6
-Stable tag: 1.3
+Stable tag: 1.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -20,9 +20,14 @@ Applies jQuery Masonry to native WordPress image galleries. jQuery Masonry is in
 
 1. Upload `jquery-masonry-image-gallery` folder to the `/wp-content/plugins/` directory
 2. Activate the plugin through the 'Plugins' menu in WordPress
-3. That's it!
+3. If you are using a fixed layout and/or want Masonry to respect the column count in the gallery shortcode, then go to Settings -> Jmig options and make sure the box is checked and save.
+4. That's it!
 
 == Frequently asked questions ==
+
+= The specified amount of columns in the gallery short code is not working. What's wrong?  =
+
+If you are using a fixed layout and/or want Masonry to respect the column count in the gallery shortcode, then go to Settings -> Jmig options and make sure the box is checked and click save.
 
 = All my thumbnails are the same size so they don't stack. Can I fix this? =
 
@@ -35,6 +40,8 @@ Yes. It's actually really easy. Go to the Dashboard -> Settings -> Media. Make s
 2. Native WordPress Gallery not using jQuery Masonry
 
 == Changelog ==
+1.6 - Added options page to let users decide to either respect WordPress columns or let Masonry layout gallery
+
 1.3 - Typo
 
 1.2 - Better version detection
@@ -52,6 +59,8 @@ Yes. It's actually really easy. Go to the Dashboard -> Settings -> Media. Make s
 0.1 - First Release
 
 == Upgrade Notice ==
+1.6 - Added options page to let users decide to either respect WordPress columns or let Masonry layout gallery
+
 1.3 - Typo
 
 1.2 - Better version detection
