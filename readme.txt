@@ -3,7 +3,7 @@ Contributors: phoenixMagoo
 Donate link: 
 Tags: gallery, jquery masonry
 Requires at least: 3.5
-Tested up to: 3.6
+Tested up to: 3.7
 Stable tag: 1.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
