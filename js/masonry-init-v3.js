@@ -7,8 +7,5 @@ var msnry = imagesLoaded( container, function() {
 			});
 	});
 msnry.on( 'always', function() {
-	for ( var i = 0, len = msnry.images.length; i < len; i++ ) {
-    	var image = msnry.images[i];
-    	image.img.className += " jmig-img-loaded";
-    }
+	container.className += " jmig-img-loaded";
 });
