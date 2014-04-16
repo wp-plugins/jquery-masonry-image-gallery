@@ -16,7 +16,7 @@ Applies Masonry to native WordPress image galleries. Masonry is included in Word
 
 <strong>Please note:</strong> This plugin will include 1 line of CSS in your theme. The only CSS injected is the thumbnail width that is taken directly from the Media options page. This will not alter gallery thumbnail styles such as border, padding, etc. This 1 line of CSS helps eliminate image overlap in a responsive theme during window resize. You can turn this off in the options page if necessary. 
 
-This plugin also includes 1 CSS file that is for animation purposes only (Chrome, Firefox, Safari and IE 10+). The entire gallery will fade in using a CSS3 animation once all the images have loaded. This include will not alter gallery thumbnail styles such as border, padding, etc. Backwards compatibility has been added for IE 9 and IE 8.
+This plugin also includes 1 CSS file that is for animation purposes only (Chrome, Firefox, Safari and IE 10+). The entire gallery will fade in using a CSS3 animation once all the images have loaded. This include will not alter gallery thumbnail styles such as border, padding, etc. IE 8 and IE 9 will work, but will not fade in.
 
 == Installation ==
 
