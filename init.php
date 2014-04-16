@@ -5,12 +5,12 @@
 Plugin Name:  jQuery Masonry Image Gallery
 Plugin URI:   http://willrees.com/2013/02/jquery-masonry-and-native-wordpress-image-galleries/
 Description:  Injects jQuery Masonry for native WordPress image galleries. jQuery Masonry is included in WordPress, use it for image galleries. Works best on galleries <strong>without</strong> 1:1 scaled thumbnails.
-Version:      1.6
+Version:      2.0
 Author:       Will Rees
 Author URI:   http://willrees.com
 License:
 
-  Copyright 2013 Will Rees (rees.will@gmail.com)
+  Copyright 2014 Will Rees (rees.will@gmail.com)
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License, version 2, as 
@@ -29,12 +29,6 @@ License:
 
 if (is_admin()) {
 
-	function cleanup_on_deactivate() {
-		delete_option('jmig_option');
-	}
-
-	register_deactivation_hook(__FILE__, 'cleanup_on_deactivate');
-
 	add_action('admin_init', 'jmig_options_init' );
 	add_action('admin_menu', 'jmig_options_add_page');
 	
@@ -50,7 +44,15 @@ if (is_admin()) {
 		
 		// Draw the menu page itself
 		function jmig_options_do_page() {
-			?>
+		
+		global $select_options, $radio_options;
+		
+		if ( ! isset( $_REQUEST['settings-updated'] ) )
+		
+		$_REQUEST['settings-updated'] = false;
+		
+?>
+
 			<div class="wrap">
 				<h2>jQuery Masonry Image Gallery Options</h2>
 				<form method="post" action="options.php">
@@ -58,9 +60,10 @@ if (is_admin()) {
 					<?php $jmig_options = get_option('jmig_option'); ?>
 					<table class="form-table">
 					
-						<p>Check this box <strong>ONLY</strong> if you need to maintain the column count in the WordPress gallery short code. Masonry works best without this setting enabled to allow it to ignore the amount of columns specified in the gallery settings. If you have a responsive design, leave this box unchecked to avoid gallery thumbnail overlap during window resize.</p>
+						<p>Check this box <strong>ONLY</strong> if you need to maintain the column count in the WordPress gallery short code. Might be necessary in some themes.</p>
+						
 						<tr valign="top"><th scope="row"><strong>DO NOT</strong> allow Masonry to layout your gallery columns?</th>
-							<td><input name="jmig_option[fixed_layout]" type="checkbox" value="1" <?php checked('1', $jmig_options['fixed_layout']); ?> /></td>
+							<td><input name="jmig_option[fixed_layout]" type="checkbox" value="1" <?php checked( '1', (isset($jmig_options['fixed_layout'])) ); ?> /></td>
 						</tr>
 						
 					</table>
@@ -69,107 +72,181 @@ if (is_admin()) {
 					</p>
 				</form>
 			</div>
-			<?php	
+			
+	<?php	
+		
 		}
 		
-		// Sanitize and validate input. Accepts an array, return a sanitized array.
+		
 		function jmig_options_validate($input) {
-			// Our first value is either 0 or 1
-			$input['fixed_layout'] = ( $input['fixed_layout'] == 1 ? 1 : 0 );
 			
-			return $input;
+			global $select_options, $radio_options;
+				
+				return $input;
 		}
 	
-	}
+}
 
 else {
 
-	$jmig_options = get_option('jmig_option');
+	// START USING MASONRY 3 OPTIONS INSTEAD OF MASONRY 2. SHOULD BE A LITTLE FASTER AND RESPONSIVE.
 	
-		if ($wp_version >= '3.6') {
+	if ($wp_version >= '3.9') {
+	
+		function jmig_css() {
+	
+			global $post;
+			global $wp_styles;
+			global $is_IE;
+	
+				if( has_shortcode( $post->post_content, 'gallery') ) {
 
-			if($jmig_options['fixed_layout'] != '1') { 
-				
-				function jmig_css() {
-	
-					global $post;
-	
-						if( has_shortcode( $post->post_content, 'gallery') ) {
-
-							wp_enqueue_style('jmig_stylesheet',
-							plugins_url( 'jmig.css' , __FILE__ )
-							);
-        
+					wp_enqueue_style('jmig_stylesheet',
+					plugins_url( 'styles/jmig-masonry-v3.css' , __FILE__ )
+					);
+							
+						$jmig_options = get_option('jmig_option');
+							
+							if(!isset($jmig_options['fixed_layout'])) { 	
+								
 								$thumbnail_width = get_option( 'thumbnail_size_w' );
-								$custom_css = '.gallery-item {width: ' . $thumbnail_width . 'px !important}';
+								$custom_css = '.gallery-item, .gallery-item img {width: ' . $thumbnail_width . 'px !important;}';
 		
 									wp_add_inline_style( 'jmig_stylesheet', $custom_css );
+							}
+								
+								if ($is_IE) {
+										
+										wp_enqueue_style( 'for-lte-IE9',
+										plugins_url( 'styles/jmig-lte-ie9.css' , __FILE__ )
+										);
+											
+											$wp_styles->add_data( 'for-lte-IE9', 'conditional', 'lte IE 9' );
+										
+								}
 					
-						}
-
 				}
 
-					add_action( 'wp_enqueue_scripts', 'jmig_css' );
-
-			}
-
-	function jmig_js() {
-		
-		global $post;
-		
-			if( has_shortcode( $post->post_content, 'gallery') ) {
-				
-				wp_register_script('masonryInit',
-				plugins_url( 'masonry-init.js' , __FILE__ ),
-				array('jquery', 'jquery-masonry'),
-				'0.4', 
-				true);
-	      
-					wp_enqueue_script('masonryInit');
-					
-			}
-  
-	}
-
-		add_action( 'wp_enqueue_scripts', 'jmig_js');
-		
-}
-		
-else {
-	
-	if($jmig_options['fixed_layout'] != '1') {
-	
-		function jmig_css() 
-		
-			{
-				wp_enqueue_style('jmig_stylesheet',
-				plugins_url( 'jmig.css' , __FILE__ )
-				);
-        
-					$thumbnail_width = get_option( 'thumbnail_size_w' );
-					$custom_css = '.gallery-item {width: ' . $thumbnail_width . 'px !important}';
-		
-						wp_add_inline_style( 'jmig_stylesheet', $custom_css );
-					
-			}
-
-	add_action( 'wp_enqueue_scripts', 'jmig_css' );
-	
-	}
-	
-		function masonry_init() {
-		
-				wp_register_script('masonryInit',
-				plugins_url( 'masonry-init.js' , __FILE__ ),
-				array('jquery', 'jquery-masonry'),
-		        '0.4', 
-				true);
-        
-					wp_enqueue_script('masonryInit');
-     
 		}
-  
-  add_action('wp_enqueue_scripts', 'masonry_init');}
+
+			add_action( 'wp_enqueue_scripts', 'jmig_css', 99 );
+
+		function jmig_js() {
+			
+			global $post;
+			
+				if( has_shortcode( $post->post_content, 'gallery') ) {
+					
+					wp_register_script('masonryInit',
+					plugins_url( 'js/masonry-init-v3.js' , __FILE__ ),
+					array('jquery-masonry'),
+					'2.0', 
+					true);
+		      
+						wp_enqueue_script('masonryInit');
+						
+				}
+	  
+		}
+			
+			add_action( 'wp_enqueue_scripts', 'jmig_js');
+		
+	}
+	
+	//LEGACY CODE BELOW FOR WORDPRESS VERSIONS 3.6.X AND BELOW.
+	
+	elseif ($wp_version >= '3.6') {
+	
+		$jmig_options = get_option('jmig_option');
+
+			if(!isset($jmig_options['fixed_layout'])) { 
+					
+				function jmig_css() {
+		
+						global $post;
+		
+							if( has_shortcode( $post->post_content, 'gallery') ) {
+	
+								wp_enqueue_style('jmig_stylesheet',
+								plugins_url( 'styles/jmig-masonry-v2.css' , __FILE__ )
+								);
+	        
+									$thumbnail_width = get_option( 'thumbnail_size_w' );
+									$custom_css = '.gallery-item, .gallery-item img {width: ' . $thumbnail_width . 'px !important;}';
+			
+										wp_add_inline_style( 'jmig_stylesheet', $custom_css );
+						
+							}
+	
+					}
+	
+						add_action( 'wp_enqueue_scripts', 'jmig_css', 99 );
+	
+			}
+	
+				function jmig_js() {
+					
+					global $post;
+					
+						if( has_shortcode( $post->post_content, 'gallery') ) {
+							
+							wp_register_script('masonryInit',
+							plugins_url( 'js/masonry-init-v2.js' , __FILE__ ),
+							array('jquery-masonry'),
+							'1.6', 
+							true);
+				      
+								wp_enqueue_script('masonryInit');
+								
+						}
+			  
+				}
+			
+					add_action( 'wp_enqueue_scripts', 'jmig_js');
+		
+	}
+
+	//BELOW IS ONLY FOR WORDPRESS 3.5...#oldmanriver
+			
+	else {
+	
+		$jmig_options = get_option('jmig_option');
+		
+			if(!isset($jmig_options['fixed_layout'])) {
+			
+				function jmig_css() 
+				
+					{
+						wp_enqueue_style('jmig_stylesheet',
+						plugins_url( 'styles/jmig-masonry-v2.css' , __FILE__ )
+						);
+		        
+							$thumbnail_width = get_option( 'thumbnail_size_w' );
+							$custom_css = '.gallery-item, .gallery-item img {width: ' . $thumbnail_width . 'px !important;}';
+				
+								wp_add_inline_style( 'jmig_stylesheet', $custom_css );
+							
+					}
+		
+						add_action( 'wp_enqueue_scripts', 'jmig_css', 99 );
+			
+			}
+			
+				function masonry_init() {
+				
+						wp_register_script('masonryInit',
+						plugins_url( 'js/masonry-init-v2.js' , __FILE__ ),
+						array('jquery-masonry'),
+				        '1.6', 
+						true);
+		        
+							wp_enqueue_script('masonryInit');
+		     
+				}
+		  
+					add_action('wp_enqueue_scripts', 'masonry_init');
+	
+	}
   
 }
 
