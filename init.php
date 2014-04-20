@@ -117,11 +117,11 @@ else {
 								
 								if ($is_IE) {
 										
-										wp_enqueue_style( 'for-lte-IE9',
+										wp_enqueue_style( 'jmig-lte-IE9',
 										plugins_url( 'styles/jmig-lte-ie9.css' , __FILE__ )
 										);
 											
-											$wp_styles->add_data( 'for-lte-IE9', 'conditional', 'lte IE 9' );
+											$wp_styles->add_data( 'jmig-lte-IE9', 'conditional', 'lte IE 9' );
 										
 								}
 					
