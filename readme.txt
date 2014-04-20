@@ -4,7 +4,7 @@ Donate link:
 Tags: gallery, jquery masonry, masonry
 Requires at least: 3.5
 Tested up to: 3.9
-Stable tag: 2.1.2
+Stable tag: 2.1.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -42,7 +42,7 @@ Yes. It's actually really easy. Go to the Dashboard -> Settings -> Media. Make s
 2. Native WordPress Gallery not using jQuery Masonry
 
 == Changelog ==
-2.1.2 - Better performance on WordPress 3.9+ using the vanilla js option included in Masonry 3. Galleries now fade-in after all images have loaded in modern browsers and IE 10+. Backwards compatibility included for IE 8 and IE 9 (loads, but no fade). This is the last release that will support WordPress 3.5 . The next release will still support WordPress 3.6 .
+2.1.3 - Better performance on WordPress 3.9+ using the vanilla js option included in Masonry 3. Galleries now fade-in after all images have loaded in modern browsers and IE 10+. Backwards compatibility included for IE 8 and IE 9 (loads, but no fade). This is the last release that will support WordPress 3.5 . The next release will still support WordPress 3.6 .
 
 1.6 - Added options page to let users decide to either respect WordPress columns or let Masonry layout gallery
 
@@ -63,7 +63,7 @@ Yes. It's actually really easy. Go to the Dashboard -> Settings -> Media. Make s
 0.1 - First Release
 
 == Upgrade Notice ==
-2.1.2 - Better performance on WordPress 3.9+ using the vanilla js option included in Masonry 3. Galleries now fade-in after all images have loaded in modern browsers and IE 10+. Backwards compatibility included for IE 8 and IE 9 (loads, but no fade). This is the last release that will support WordPress 3.5 . The next release will still support WordPress 3.6 .
+2.1.3 - Better performance on WordPress 3.9+ using the vanilla js option included in Masonry 3. Galleries now fade-in after all images have loaded in modern browsers and IE 10+. Backwards compatibility included for IE 8 and IE 9 (loads, but no fade). This is the last release that will support WordPress 3.5 . The next release will still support WordPress 3.6 .
 
 1.6 - Added options page to let users decide to either respect WordPress columns or let Masonry layout gallery
 
