@@ -1,11 +1,13 @@
-var container = document.querySelector('.gallery');
-var msnry = imagesLoaded( container, function() {
-			msnry = new Masonry( container, {
-			itemSelector: '.gallery-item',
-			columnWidth: '.gallery-item',
-			isFitWidth: true
+(function($){
+	var $container = $('.gallery');
+		$container.imagesLoaded(function(){
+			$container.masonry({
+				itemSelector : '.gallery-item',
+				isFitWidth: true
+				});
 			});
-	});
-msnry.on( 'always', function() {
-	container.className += " jmig-img-loaded";
-});
+		$container.imagesLoaded()
+			.always( function( instance ) {
+				$( ".gallery" ).addClass( "jmig-img-loaded" );
+			})
+})(jQuery);
