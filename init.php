@@ -5,7 +5,7 @@
 Plugin Name:  jQuery Masonry Image Gallery
 Plugin URI:   http://willrees.com/2013/02/jquery-masonry-and-native-wordpress-image-galleries/
 Description:  Injects jQuery Masonry for native WordPress image galleries. jQuery Masonry is included in WordPress, use it for image galleries. Works best on galleries <strong>without</strong> 1:1 scaled thumbnails.
-Version:      2.1.5
+Version:      2.1.6
 Author:       Will Rees
 Author URI:   http://willrees.com
 License:
@@ -103,14 +103,13 @@ else {
 	
 			global $post;
 			global $wp_styles;
-			global $is_IE;
 				
 				if( has_shortcode( $post->post_content, 'gallery') ) {
 
 					wp_enqueue_style('jmig_stylesheet',
 					plugins_url( 'styles/jmig-masonry-v3.css' , __FILE__ ),
 					array(),
-					'2.1.5'
+					'2.1.6'
 					);
 
 						$jmig_options = get_option('jmig_option');
@@ -123,17 +122,15 @@ else {
 									wp_add_inline_style( 'jmig_stylesheet', $custom_css );
 							}
 								
-								if ($is_IE) {
 										
-									wp_enqueue_style( 'jmig-lte-IE9',
-									plugins_url( 'styles/jmig-lte-ie9.css' , __FILE__ ),
-									array(),
-									'2.1.5'
-									);
-											
-										$wp_styles->add_data( 'jmig-lte-IE9', 'conditional', 'lte IE 9' );
+								wp_enqueue_style( 'jmig-lte-IE9',
+								plugins_url( 'styles/jmig-lte-ie9.css' , __FILE__ ),
+								array(),
+								'2.1.6'
+								);
 										
-								}
+									$wp_styles->add_data( 'jmig-lte-IE9', 'conditional', 'lte IE 9' );
+										
 					
 				}
 
@@ -150,7 +147,7 @@ else {
 					wp_register_script('masonryInit',
 					plugins_url( 'js/masonry-init-v3.js' , __FILE__ ),
 					array('masonry'),
-					'2.1.5', 
+					'2.1.6', 
 					true);
 		      
 						wp_enqueue_script('masonryInit');

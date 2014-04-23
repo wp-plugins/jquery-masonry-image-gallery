@@ -4,7 +4,7 @@ Donate link:
 Tags: gallery, jquery masonry, masonry
 Requires at least: 3.5
 Tested up to: 3.9
-Stable tag: 2.1.5
+Stable tag: 2.1.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -42,6 +42,8 @@ Yes. It's actually really easy. Go to the Dashboard -> Settings -> Media. Make s
 2. Native WordPress Gallery not using jQuery Masonry
 
 == Changelog ==
+2.1.6 - Fixed a minor issue with server side caching and IE 9 and below
+
 2.1.5 - Better support for WordPress 3.9 (Vanilla JS now supports multiple galleries on a page or post)
 
 2.1.4 - Better support for pages and posts with multiple galleries.
@@ -67,6 +69,8 @@ Yes. It's actually really easy. Go to the Dashboard -> Settings -> Media. Make s
 0.1 - First Release
 
 == Upgrade Notice ==
+2.1.6 - Fixed a minor issue with server side caching and IE 9 and below
+
 2.1.5 - Better support for WordPress 3.9 (Vanilla JS now supports multiple galleries on a page or post)
 
 2.1.4 - Better support for pages and posts with multiple galleries.
