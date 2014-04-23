@@ -5,7 +5,7 @@
 Plugin Name:  jQuery Masonry Image Gallery
 Plugin URI:   http://willrees.com/2013/02/jquery-masonry-and-native-wordpress-image-galleries/
 Description:  Injects jQuery Masonry for native WordPress image galleries. jQuery Masonry is included in WordPress, use it for image galleries. Works best on galleries <strong>without</strong> 1:1 scaled thumbnails.
-Version:      2.1.4
+Version:      2.1.5
 Author:       Will Rees
 Author URI:   http://willrees.com
 License:
@@ -54,23 +54,29 @@ if (is_admin()) {
 ?>
 
 			<div class="wrap">
+				
 				<h2>jQuery Masonry Image Gallery Options</h2>
-				<form method="post" action="options.php">
-					<?php settings_fields('jmig_options_options'); ?>
-					<?php $jmig_options = get_option('jmig_option'); ?>
-					<table class="form-table">
+				
+					<form method="post" action="options.php">
 					
-						<p>Check this box <strong>ONLY</strong> if you need to maintain the column count in the WordPress gallery short code. Might be necessary in some themes.</p>
+						<?php settings_fields('jmig_options_options'); ?>
+						<?php $jmig_options = get_option('jmig_option'); ?>
+					
+							<table class="form-table">
+					
+								<p>Check this box <strong>ONLY</strong> if you need to maintain the column count in the WordPress gallery short code. Might be necessary in some themes.</p>
 						
-						<tr valign="top"><th scope="row"><strong>DO NOT</strong> allow Masonry to layout your gallery columns?</th>
-							<td><input name="jmig_option[fixed_layout]" type="checkbox" value="1" <?php checked( '1', (isset($jmig_options['fixed_layout'])) ); ?> /></td>
-						</tr>
+									<tr valign="top"><th scope="row"><strong>DO NOT</strong> allow Masonry to layout your gallery columns?</th>
+							
+										<td><input name="jmig_option[fixed_layout]" type="checkbox" value="1" <?php checked( '1', (isset($jmig_options['fixed_layout'])) ); ?> /></td>
+									
+									</tr>
 						
-					</table>
-					<p class="submit">
-					<input type="submit" class="button-primary" value="<?php _e('Save Changes') ?>" />
-					</p>
-				</form>
+							</table>
+					
+								<p class="submit"><input type="submit" class="button-primary" value="<?php _e('Save Changes') ?>" /></p>
+					</form>
+					
 			</div>
 			
 	<?php	
@@ -84,7 +90,7 @@ if (is_admin()) {
 				
 				return $input;
 		}
-	
+
 }
 
 else {
@@ -98,17 +104,19 @@ else {
 			global $post;
 			global $wp_styles;
 			global $is_IE;
-	
+				
 				if( has_shortcode( $post->post_content, 'gallery') ) {
 
 					wp_enqueue_style('jmig_stylesheet',
-					plugins_url( 'styles/jmig-masonry-v3.css' , __FILE__ )
+					plugins_url( 'styles/jmig-masonry-v3.css' , __FILE__ ),
+					array(),
+					'2.1.5'
 					);
-							
+
 						$jmig_options = get_option('jmig_option');
-							
+
 							if(!isset($jmig_options['fixed_layout'])) { 	
-								
+
 								$thumbnail_width = get_option( 'thumbnail_size_w' );
 								$custom_css = '.gallery-item, .gallery-item img {width: ' . $thumbnail_width . 'px !important;}';
 		
@@ -117,11 +125,13 @@ else {
 								
 								if ($is_IE) {
 										
-										wp_enqueue_style( 'jmig-lte-IE9',
-										plugins_url( 'styles/jmig-lte-ie9.css' , __FILE__ )
-										);
+									wp_enqueue_style( 'jmig-lte-IE9',
+									plugins_url( 'styles/jmig-lte-ie9.css' , __FILE__ ),
+									array(),
+									'2.1.5'
+									);
 											
-											$wp_styles->add_data( 'jmig-lte-IE9', 'conditional', 'lte IE 9' );
+										$wp_styles->add_data( 'jmig-lte-IE9', 'conditional', 'lte IE 9' );
 										
 								}
 					
@@ -139,8 +149,8 @@ else {
 					
 					wp_register_script('masonryInit',
 					plugins_url( 'js/masonry-init-v3.js' , __FILE__ ),
-					array('jquery-masonry'),
-					'2.0', 
+					array('masonry'),
+					'2.1.5', 
 					true);
 		      
 						wp_enqueue_script('masonryInit');
@@ -153,7 +163,7 @@ else {
 		
 	}
 	
-	//LEGACY CODE BELOW FOR WORDPRESS VERSIONS 3.6.X AND BELOW.
+	//LEGACY CODE BELOW FOR WORDPRESS VERSIONS 3.8.X TO 3.6.X.
 	
 	elseif ($wp_version >= '3.6') {
 	
@@ -163,24 +173,26 @@ else {
 					
 				function jmig_css() {
 		
-						global $post;
+					global $post;
 		
-							if( has_shortcode( $post->post_content, 'gallery') ) {
+						if( has_shortcode( $post->post_content, 'gallery') ) {
 	
-								wp_enqueue_style('jmig_stylesheet',
-								plugins_url( 'styles/jmig-masonry-v2.css' , __FILE__ )
-								);
-	        
-									$thumbnail_width = get_option( 'thumbnail_size_w' );
-									$custom_css = '.gallery-item, .gallery-item img {width: ' . $thumbnail_width . 'px !important;}';
-			
-										wp_add_inline_style( 'jmig_stylesheet', $custom_css );
-						
-							}
+							wp_enqueue_style('jmig_stylesheet',
+							plugins_url( 'styles/jmig-masonry-v2.css' , __FILE__ ),
+							array(),
+							'1.6'
+							);
+	    
+								$thumbnail_width = get_option( 'thumbnail_size_w' );
+								$custom_css = '.gallery-item, .gallery-item img {width: ' . $thumbnail_width . 'px !important;}';
+		
+									wp_add_inline_style( 'jmig_stylesheet', $custom_css );
+					
+						}
 	
-					}
+				}
 	
-						add_action( 'wp_enqueue_scripts', 'jmig_css', 99 );
+					add_action( 'wp_enqueue_scripts', 'jmig_css', 99 );
 	
 			}
 	
@@ -206,7 +218,7 @@ else {
 		
 	}
 
-	//BELOW IS ONLY FOR WORDPRESS 3.5...#oldmanriver
+	//BELOW IS ONLY FOR WORDPRESS 3.5.X ...#oldmanriver
 			
 	else {
 	
@@ -218,7 +230,9 @@ else {
 				
 					{
 						wp_enqueue_style('jmig_stylesheet',
-						plugins_url( 'styles/jmig-masonry-v2.css' , __FILE__ )
+						plugins_url( 'styles/jmig-masonry-v2.css' , __FILE__ ),
+						array(),
+						'1.6'
 						);
 		        
 							$thumbnail_width = get_option( 'thumbnail_size_w' );
