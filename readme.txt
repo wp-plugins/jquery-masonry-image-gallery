@@ -12,9 +12,9 @@ Applies Masonry to native WordPress image galleries. Works best on galleries wit
 
 == Description ==
 
-[See Demo](http://willrees.com/jquery-masonry-wordpress-gallery-plugin-demo/)
+[See Demo](http://willrees.com/jquery-masonry-wordpress-gallery-plugin-demo/ "See Demo")
 
-[Try Beta](http://willrees.com/2014/05/jquery-masonry-image-gallery-beta-testing/)
+[Try Beta](http://willrees.com/2014/05/jquery-masonry-image-gallery-beta-testing/ "Try Beta")
 
 Help me out by beta testing the next version!
 
