@@ -16,8 +16,6 @@ Applies Masonry to native WordPress image galleries. Works best on galleries wit
 
 [Try Beta](http://willrees.com/2014/05/jquery-masonry-image-gallery-beta-testing/ "Try Beta")
 
-Help me out by beta testing the next version!
-
 Applies Masonry to native WordPress image galleries. Masonry is included in WordPress, use it for image galleries. Works best on galleries <strong>without</strong> 1:1 scaled thumbnails.
 
 <strong>Please note:</strong> This plugin will include 1 line of CSS in your theme. The only CSS injected is the thumbnail width that is taken directly from the Media options page. This will not alter gallery thumbnail styles such as border, padding, etc. This 1 line of CSS helps eliminate image overlap in a responsive theme during window resize. You can turn this off in the options page if necessary.
