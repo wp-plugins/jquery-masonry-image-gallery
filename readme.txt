@@ -1,9 +1,9 @@
 === jQuery Masonry Image Gallery ===
 Contributors: phoenixMagoo
-Donate link: 
+Donate link: http://bit.ly/1jzZKCu
 Tags: gallery, jquery masonry, masonry
 Requires at least: 3.5
-Tested up to: 3.9
+Tested up to: 3.9.1
 Stable tag: 2.1.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -12,9 +12,15 @@ Applies Masonry to native WordPress image galleries. Works best on galleries wit
 
 == Description ==
 
+[See Demo](http://willrees.com/jquery-masonry-wordpress-gallery-plugin-demo/ "See Demo")
+
+[Try Beta](http://willrees.com/2014/05/jquery-masonry-image-gallery-beta-testing/ "Try Beta")
+
+Help me out by beta testing the next version!
+
 Applies Masonry to native WordPress image galleries. Masonry is included in WordPress, use it for image galleries. Works best on galleries <strong>without</strong> 1:1 scaled thumbnails.
 
-<strong>Please note:</strong> This plugin will include 1 line of CSS in your theme. The only CSS injected is the thumbnail width that is taken directly from the Media options page. This will not alter gallery thumbnail styles such as border, padding, etc. This 1 line of CSS helps eliminate image overlap in a responsive theme during window resize. You can turn this off in the options page if necessary. 
+<strong>Please note:</strong> This plugin will include 1 line of CSS in your theme. The only CSS injected is the thumbnail width that is taken directly from the Media options page. This will not alter gallery thumbnail styles such as border, padding, etc. This 1 line of CSS helps eliminate image overlap in a responsive theme during window resize. You can turn this off in the options page if necessary.
 
 This plugin also includes 1 CSS file that is for animation purposes only (Chrome, Firefox, Safari and IE 10+). The entire gallery will fade in using a CSS3 animation once all the images have loaded. This include will not alter gallery thumbnail styles such as border, padding, etc. IE 8 and IE 9 will work, but will not fade in.
 
@@ -33,7 +39,7 @@ If you are using a fixed layout and/or want Masonry to respect the column count 
 
 = All my thumbnails are the same size so they don't stack. Can I fix this? =
 
-Yes. It's actually really easy. Go to the Dashboard -> Settings -> Media. Make sure "Crop thumbnail to exact dimensions (normally thumbnails are proportional)" is unchecked. You can also change the size of thumbnails as well. [Then install the Regenerate Images plugin](http://wordpress.org/plugins/regenerate-thumbnails/) and run it. Now your gallery images will stack.  
+Yes. It's actually really easy. Go to the Dashboard -> Settings -> Media. Make sure "Crop thumbnail to exact dimensions (normally thumbnails are proportional)" is unchecked. You can also change the size of thumbnails as well. [Then install the Regenerate Images plugin](http://wordpress.org/plugins/regenerate-thumbnails/) and run it. Now your gallery images will stack.
 
 == Screenshots ==
 
@@ -58,7 +64,7 @@ Yes. It's actually really easy. Go to the Dashboard -> Settings -> Media. Make s
 
 1.1 - Better backwards compatiblity with WordPress 3.5
 
-1.0 - Big update. Now uses the new has_shortcode function available in WP 3.6 with fallback for older version of WP. Also uses thumbnail size for better resizing during window resize. Only injects  1 line of CSS for thumbnail size.  
+1.0 - Big update. Now uses the new has_shortcode function available in WP 3.6 with fallback for older version of WP. Also uses thumbnail size for better resizing during window resize. Only injects  1 line of CSS for thumbnail size.
 
 0.4 - Minor code update
 
@@ -85,7 +91,7 @@ Yes. It's actually really easy. Go to the Dashboard -> Settings -> Media. Make s
 
 1.1 - Better backwards compatiblity with WordPress 3.5
 
-1.0 - Big update. Now uses the new has_shortcode function available in WP 3.6 with fallback for older version of WP. Also uses thumbnail size for better resizing during window resize. Only injects  1 line of CSS for thumbnail size.  
+1.0 - Big update. Now uses the new has_shortcode function available in WP 3.6 with fallback for older version of WP. Also uses thumbnail size for better resizing during window resize. Only injects  1 line of CSS for thumbnail size.
 
 0.4 - Minor code update
 
