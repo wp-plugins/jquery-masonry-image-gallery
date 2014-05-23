@@ -1,6 +1,6 @@
 === jQuery Masonry Image Gallery ===
 Contributors: phoenixMagoo
-Donate link: 
+Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=NB46DBF4VJV5G 
 Tags: gallery, jquery masonry, masonry
 Requires at least: 3.5
 Tested up to: 3.9.1
