@@ -12,7 +12,11 @@ Applies Masonry to native WordPress image galleries. Works best on galleries wit
 
 == Description ==
 
-<a href="http://willrees.com/jquery-masonry-wordpress-gallery-plugin-demo/">See Demo</a>
+[See Demo](http://willrees.com/jquery-masonry-wordpress-gallery-plugin-demo/)
+
+[Try Beta](http://willrees.com/2014/05/jquery-masonry-image-gallery-beta-testing/)
+
+Help me out by beta testing the next version!
 
 Applies Masonry to native WordPress image galleries. Masonry is included in WordPress, use it for image galleries. Works best on galleries <strong>without</strong> 1:1 scaled thumbnails.
 
