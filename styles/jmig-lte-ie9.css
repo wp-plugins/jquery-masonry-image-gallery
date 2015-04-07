@@ -1,0 +1,4 @@
+@charset "UTF-8";
+.gallery, .jmig-gallery-loaded, .jmig-img-hide, .jmig-img-show {
+    opacity: 1
+}

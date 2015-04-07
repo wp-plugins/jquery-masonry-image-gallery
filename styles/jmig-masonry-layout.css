@@ -1,0 +1,28 @@
+/* Remove all styling from Galleries. This will allow Masonry to work a bit better. Only available on WP >= 3.9 since it requires HTML5 <figure> */
+.gallery
+{
+    margin: 1.5em auto !important;
+}
+
+.gallery *,
+.gallery a
+{
+    line-height: 1 !important;
+
+    display: inline !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    text-align: center !important;
+    vertical-align: middle !important;
+    text-decoration: none !important;
+
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+}
+.gallery-item
+{
+	background-color: #eaeaea;
+}
