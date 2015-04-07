@@ -1,0 +1,123 @@
+@-webkit-keyframes fadeOut
+{
+    from
+    {
+        opacity: 1;
+    }
+    to
+    {
+        opacity: 0;
+    }
+}
+
+@-moz-keyframes fadeOut
+{
+    from
+    {
+        opacity: 1;
+    }
+    to
+    {
+        opacity: 0;
+    }
+}
+
+@keyframes fadeOut
+{
+    from
+    {
+        opacity: 1;
+    }
+    to
+    {
+        opacity: 0;
+    }
+}
+
+@-webkit-keyframes fadeIn
+{
+    from
+    {
+        opacity: 0;
+    }
+    to
+    {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes fadeIn
+{
+    from
+    {
+        opacity: 0;
+    }
+    to
+    {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn
+{
+    from
+    {
+        opacity: 0;
+    }
+    to
+    {
+        opacity: 1;
+    }
+}
+
+.gallery-caption
+{
+    font-size: 12px;
+    line-height: 1.5;
+    line-height: 125% !important;
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+    width: 100%;
+    max-height: 50%;
+    padding: 6px 8px !important;
+
+    opacity: 0;
+    color: #fff;
+    background-color: rgba(0, 0, 0, .7);
+}
+
+.gallery-item .gallery-caption
+{
+    -webkit-animation: fadeOut ease-in-out 1; /* call our keyframe named fadeIn, use animattion ease-in-out and repeat it only 1 time */
+       -moz-animation: fadeOut ease-in-out 1;
+            animation: fadeOut ease-in-out 1;
+    -webkit-animation-duration: .3s;
+       -moz-animation-duration: .3s;
+            animation-duration: .3s;
+
+    -webkit-animation-fill-mode: both; /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+       -moz-animation-fill-mode: both;
+            animation-fill-mode: both;
+}
+
+.gallery-item:hover .gallery-caption
+{
+    -webkit-animation: fadeIn ease-in-out 1; /* call our keyframe named fadeIn, use animattion ease-in-out and repeat it only 1 time */
+       -moz-animation: fadeIn ease-in-out 1;
+            animation: fadeIn ease-in-out 1;
+    -webkit-animation-duration: .3s;
+       -moz-animation-duration: .3s;
+            animation-duration: .3s;
+
+    opacity: 0; /* make things invisible upon start */
+
+    -webkit-animation-fill-mode: both; /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+       -moz-animation-fill-mode: both;
+            animation-fill-mode: both;
+}
