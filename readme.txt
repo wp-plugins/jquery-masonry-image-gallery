@@ -16,7 +16,7 @@ Adds a Masonry layout to all galleries that are using the built in WordPress Gal
 
 Adds a Masonry layout to all galleries that are using the WordPress [gallery] shortcode. Looks best on galleries that are not using 1:1 ratio thumbnails.
 
-Now includes optional <strong>Lazy Load for larger galleries</strong and hover captions!
+Now includes optional <strong>Lazy Load for larger galleries</strong> and hover captions!
 
 <strong>Please note:</strong> By default this plugin includes CSS that will overwrite the existing gallery layout. However, you can turn off some or all of the jMIG layout CSS on the options page under Settings.
 
