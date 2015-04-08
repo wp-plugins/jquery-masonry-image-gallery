@@ -8,7 +8,7 @@ Stable tag: 3.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Adds a Masonry layout to all galleries that are using the built in WordPress Galleries.
+Adds a Masonry layout to all galleries that are using built in WordPress Galleries.
 
 == Description ==
 
